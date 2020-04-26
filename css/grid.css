@@ -1,0 +1,145 @@
+
+
+/* Iniciamos estableciendo valores por defecto: */
+/* 
+Con box-sizing se cambia el modelo de cajas establecido por defecto en los navegadores. 
+Por defecto, en el modelo de caja CSS, el ancho y el alto asignado a un elemento es aplicado solo al contenido de la caja de ese elemento. Si el elemento tiene algún borde (border) o relleno (padding), se añade al ancho y alto de la caja que se despliega en pantalla, visualizándose la caja más grande que el valor definido anteriormente, lo cual ocasiona que después se tenga que ajustar el valor definido para permitir que tanto el borde como el relleno, se puedan añadir sin alterar la forma en que se muestra en el navegador. 
+*/
+
+/* #sin-border-box{
+    width: 200px;
+    padding: 30px;
+    border: 5px solid red;
+    margin: 0 auto;
+}  */
+
+/* #con-border-box{
+   box-sizing: border-box;
+   width: 200px;
+   padding: 30px;
+   border: 5px solid blue;
+   margin: 0 auto;
+} */
+
+/* 
+Con este código nos aseguramos de que nuestro navegador cambie el modelo de cajas que se tiene por defecto de tal forma que facilite el poder ajustar el contenido al tamaño establecido para cada una de nuestras cajas sin afectar su tamaño al incluir border o padding.
+*/
+* {
+    /* margin: 0; */  /*Ponerlo después del container-fluid*/
+    box-sizing: border-box;
+  }
+ 
+/* creando el CONTENEDOR */
+.container {
+    max-width: 1200px;  /*Para evitar que el contenedor se extienda demasiado cuando el contenido 
+                          sea visualizado en pantallas muy grandes, estableceremos 
+                          un tamaño de ancho máximo en pixeles con la propiedad max-width, es decir, 
+                          no importa qué tan grande sea la pantalla en la que se visualizará la página, 
+                          siempre se mostrará como si se visualizara en resoluciones de 1200px, máximo.*/
+
+    width: 100%;        /*Se establece también un ancho equivalente al 100% de la pantalla, esto es, 
+                        que el contenido de nuestra página se ajustará al tamaño de la ventana, 
+                        según ésta vaya cambiando.*/
+
+    margin: 0 auto;     /*Finalmente, ponemos un margin: 0 auto; con lo cual, 
+                        se centra el contendor en la ventana del navegador, de manera vertical, 
+                        estableciendo un margen izquierdo y derecho, por default.*/
+
+/*Para probar cómo se visualiza el container*/
+    /* border: 2px solid red;   */      /*Quitar cuando ya se estén haciendo lo de las COL-*/
+}
+
+/* creando el CONTENEDOR-FLUID (completo) */
+.container-fluid {
+    width: 100%;
+    /* border: 2px solid red; */        /*Quitar cuando ya se estén haciendo lo de las COL-*/
+}
+
+/* Para las FILAS */
+
+/* 
+Existen muchas maneras de posicionar las columnas dentro de una fila, 
+una de ellas es hacer que FLOTEN y después LIMPIAR dichos flotantes.
+*/
+.row::before, .row::after{   /*Se crea la clase .row, después, se utilizan dos pseudoclases 
+                            ::before y ::after (Una Pseudoclase es una palabra clave que se añade 
+                            a los selectores y especifica un estado especial del elemento seleccionado).
+                            */
+
+                            /*::before: inserta algún texto ANTES del contenido del elemento
+                            ::after: insertar algún texto DESPUÉS del contenido del elemento
+
+                            Ambas pseudoclases utilizan la propiedad content para añadir el valor de dicho contendio; 
+                            aunque también pueden utilizarse margin y padding.*/
+
+    content: "";            /*En este código, lo que se hace es no añadir ningún texto y solo dejar 
+                            un espacio vacío tanto antes, como después del elemento. 
+                            */
+
+    display: table;         /*Se debe tomar en cuenta que los elementos añadidos son inline, 
+                            es decir, aparecerán en la misma línea.
+                            Para evitar que se vayan acumulando en una sola línea, se utiliza la propiedad display:table, 
+                            para permitir un comportamiento de tabla de los elementos contenidos y finalmente, */
+
+    clear: both;            /*la propiedad clear:both logra impedir que los elementos queden flotando en la misma línea 
+                            y los “baja” de ambos lados, tanto izquierda como derecha.*/
+}
+
+ /*probar el ::before y el ::after*/
+ /* .row1::before{
+    content: "hola ";
+}
+
+.row2::after{
+    content: " adiós";
+} */
+
+/* Crear las COLUMNAS */
+[class*="col-"] {               /*Primero especificamos que para TODAS las clases 
+                                que inicien con la palabra COL-, 
+                                */ 
+                                
+    float: left;                /*se posicionarán las cajas 
+                                 a la izquierda de su posición original.*/
+
+    min-height: 50px;           /*Especificamos un valor de alto mínimo, es decir, 
+                                si no se especifica algún otro valor de alto, 
+                                por default nuestra Grid tendrá un alto de 50px.*/
+
+    /*border: 1px solid white;*/    /*Para colocar los espacios o gutters entre las columnas, 
+                                  agregamos un un borde de 1px o del grosor que más convenga.*/
+
+    /*background-color: blue;*/     /* Finalmente, podemos agregar un color de fondo (background-color) o poner algún borde, 
+                                  para visualizar mejor la forma en que se distribuyen las columnas dentro de las filas. */
+
+}
+
+
+/*Construcción del ESPACIO QUE OCUPARÁN COLUMNAS   (n/12)*100 */
+.col-1 {width: 8.333333333333333%;}
+.col-2 {width: 16.66666666666667%;}
+.col-3 {width: 25%}
+.col-4 {width: 33.33333333333333%}
+.col-5 {width: 41.66666666666667%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33333333333333%;}
+.col-8 {width: 66.66666666666667%;}
+.col-9 {width: 75%}
+.col-10 {width: 83.33333333333333%;}
+.col-11 {width: 91.66666666666667%;}
+.col-12 {width: 100%;}
+
+/*Construcción OFFSET o saltos a la izquierda*/
+.col-offset-0 {margin-left: 0%;} 
+.col-offset-1 {margin-left: 8.333333333333333%;}
+.col-offset-2 {margin-left: 16.66666666666667%;}
+.col-offset-3 {margin-left: 25%}
+.col-offset-4 {margin-left: 33.33333333333333%}
+.col-offset-5 {margin-left: 41.66666666666667%;}
+.col-offset-6 {margin-left: 50%;}
+.col-offset-7 {margin-left: 58.33333333333333%;}
+.col-offset-8 {margin-left: 66.66666666666667%;}
+.col-offset-9 {margin-left: 75%}
+.col-offset-10 {margin-left: 83.33333333333333%;}
+.col-offset-11 {margin-left: 91.66666666666667%;}
+.col-offset-12 {margin-left: 100%;}

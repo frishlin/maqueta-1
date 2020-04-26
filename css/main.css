@@ -1,0 +1,156 @@
+body, h1, h2, h3, p { 
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 6em;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 3.5em;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 3.2em;
+}
+
+p {
+    line-height: 1.5em;
+    text-align: left;
+    font-size: .9em;
+    font-weight: 300;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+.cont-nav, .footer, .logo, .header, .menu {
+    background-color: #343a40;
+}
+
+.header {
+    background-image: url("../img/header.jpg");
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo {
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: left;
+    padding-top: 10px;
+}
+
+.logo h1{
+    font-size: 18px;
+}
+
+.cont-nav {
+    display: flex;
+    align-items: center;
+} 
+
+
+.menu {
+    /* background-color: red; */
+    height: 60px;
+}
+
+
+ul li {
+    display: inline-block;
+    font-weight: 300;
+    padding-left: 15px;
+}
+
+.overlay {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.text-header {
+    color: white;
+    text-align: center;
+}
+
+.round {
+    border-radius: 50%;
+    width: 100%;
+}
+
+.footer {
+    align-items: center;
+    color: white;
+    display: flex;
+    height: 137px;
+    justify-content: center;
+    text-align: center;
+}
+
+.icon {
+    align-items: center;
+    color: #999c9f;
+    display: flex;
+    justify-content: right;
+}
+
+.hamburger {
+    border: 1px solid #494e53;
+    border-radius: 10%;
+    padding: 9px 15px;
+}
+
+@media (max-width: 680px) {
+
+    .content{
+        width: 100%;
+    }
+
+    .header {
+        background-position: 58% 0%;
+        height: 100vh;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .logo {
+        padding-bottom: 12px;
+        width: 73%;
+    }
+
+    .menu {
+        display: none;
+    }
+
+}
+
+@media (min-width: 680px) {
+
+    .icon {
+        display: none;
+    }
+
+    .middle{
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (min-width: 682px) and (max-width: 1265px) {
+    .menu {
+        width: 80%;
+    }
+}

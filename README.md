@@ -6,6 +6,8 @@
 
 Réplica de la siguiente plantilla de Bootstrap utilizando Grid System.
 
+***[Vista: GitHub Pages](https://frishlin.github.io/maqueta-1/)***
+
 #### *Vista Desktop*
 
 ![Vista Desktop](https://user-images.githubusercontent.com/32878468/80304866-9560ce80-877e-11ea-9b72-a9d0851d07eb.png)
